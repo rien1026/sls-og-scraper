@@ -19,5 +19,6 @@ sls deploy
 METHOD : POST
 URL : https://[your-amazon-lambda-endpoint]/dev/ogs
 Body :
- - 
+ - url
 ### Postman Example
+![POSTMAN Example](https://csy-image-uploader-bucket.s3.ap-northeast-2.amazonaws.com/image/og-scraper-usage-example.PNG)
