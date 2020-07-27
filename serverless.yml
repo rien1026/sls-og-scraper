@@ -1,0 +1,30 @@
+service:
+  name: sls-ogs-scraper
+
+plugins:
+  - serverless-plugin-typescript # tsc and copy node_modules(--production) to .build
+  - serverless-deployment-bucket # for creating new bucket
+  - serverless-offline
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  region: ap-northeast-2
+  stage: ${opt:stage, 'dev'}
+  environment:
+    AWS_NODEJS_CONNECTION_REUSE_ENABLED: 1
+    PROD_MODE: ${self:provider.stage}
+
+  deploymentBucket:
+    name: ${self:service}-bucket-${self:provider.stage}
+
+functions:
+  OgsScraper:
+    handler: src/handlers/OgsScraperHandler.OgsScraperHandler
+    memorySize: 128
+    timeout: 6
+    events:
+      - http:
+          method: post
+          path: /ogs
+          cors: true
