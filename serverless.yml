@@ -20,7 +20,7 @@ provider:
 
 functions:
   OgsScraper:
-    handler: src/handlers/OgsScraperHandler.OgsScraperHandler
+    handler: src/OgsScraperHandler.OgsScraperHandler
     memorySize: 128
     timeout: 6
     events:

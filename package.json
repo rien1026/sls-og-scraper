@@ -4,32 +4,18 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "serve": "node .build/src/handlers/OgsScraperHandler.js",
-    "start": "npm run build && npm run serve",
-    "watch": "npm run build && concurrently -k -p \"[{name}]\" -n \"TpyeScript, Node\" -c \"cyan.bold,green.bold\" \"npm run watch-ts\" \"npm run watch-node\"",
-    "build": "tsc",
-    "watch-node": "nodemon dist/src/handlers/OgsScraperHandler.js",
-    "watch-ts": "tsc -w"
+    "deploy": "sls deploy",
+    "test": "sls offline start"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@hapi/joi": "^17.1.1",
-    "@koa/cors": "^3.1.0",
     "@types/hapi__joi": "^17.1.2",
-    "@types/koa": "^2.11.3",
-    "@types/koa-router": "^7.4.1",
-    "@types/koa__cors": "^3.0.1",
-    "koa": "^2.12.0",
-    "koa-body": "^4.1.3",
-    "koa-router": "^9.0.1",
-    "open-graph-scraper": "^4.1.1",
-    "serverless-http": "^2.5.0"
+    "open-graph-scraper": "^4.1.1"
   },
   "devDependencies": {
-    "concurrently": "^5.2.0",
-    "nodemon": "^2.0.4",
     "serverless-deployment-bucket": "^1.1.2",
     "serverless-offline": "^6.3.2",
     "serverless-plugin-typescript": "^1.1.9",
